@@ -1,22 +1,61 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row><span>Angular Material</span></mat-toolbar-row>
+<header>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span i18n
+        ><em>reesk</em> - the small tool for estimating Scrum story points</span
+      >
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span i18n>
+        <em>Simple.</em> Setup all your parameters and read the estimation
+        below.
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</header>
 
-  <mat-toolbar-row>
-    <span>Second Line</span>
-    <span class="example-spacer"></span>
-    <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
+<section>
+  <reesk-chooser
+    i18n-label
+    label="Max story point outcome"
+    allowed="[13,20,40,100]"
+    (change)="changeMaxOutcome($event)"
+  ></reesk-chooser>
+</section>
+
+<section *ngIf="slidersEnabled">
+  <reesk-slider
+    i18n-label
+    label="Complexity"
+    min="1"
+    max="3"
+    (change)="changeComplexity($event)"
+  ></reesk-slider>
+  <reesk-slider
+    i18n-label
+    label="Knowledge in the team"
+    min="1"
+    max="3"
+    (change)="changeKnowledge($event)"
+  ></reesk-slider>
+  <reesk-slider
+    i18n-label
+    label="Dependencies outside of the team"
+    min="1"
+    max="3"
+    (change)="changeDependencies($event)"
+  ></reesk-slider>
+  <reesk-slider
+    i18n-label
+    label="Communicational overhead"
+    min="1"
+    max="3"
+    (change)="changeCommunication($event)"
+  ></reesk-slider>
+
+  <h2 i18n>Estimation in story points: {{ estimation }}</h2>
+</section>
+
+<footer>
+  <reesk-share></reesk-share>
+</footer>

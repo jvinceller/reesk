@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ label }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-button-toggle-group>
+      <ng-template ngFor let-value [ngForOf]="allowedValues" let-i="index">
+        <mat-button-toggle class="m-1" mat-fab (click)="onChange(i)">
+          {{ value }}
+        </mat-button-toggle>
+      </ng-template>
+    </mat-button-toggle-group>
+  </mat-card-content>
+</mat-card>

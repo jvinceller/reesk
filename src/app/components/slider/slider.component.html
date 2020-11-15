@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ label }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-slider
+      thumbLabel
+      [displayWith]="formatLabel"
+      tickInterval="1"
+      [min]="min"
+      [max]="max"
+      (change)="onChange($event)"
+    ></mat-slider>
+  </mat-card-content>
+</mat-card>

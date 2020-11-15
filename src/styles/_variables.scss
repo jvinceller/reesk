@@ -1,0 +1,15 @@
+@import "~@angular/material/theming";
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$reesk-primary: mat-palette($mat-blue);
+$reesk-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$reesk-warn: mat-palette($mat-red);
+
+// Create your Sass color vars (will be available in all the project)
+$primary: mat-color($reesk-primary);
+$accent: mat-color($reesk-accent);
+$warn: mat-color($reesk-warn);

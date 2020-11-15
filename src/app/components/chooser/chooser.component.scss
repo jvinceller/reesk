@@ -1,0 +1,6 @@
+@import "../../../styles/_variables.scss";
+
+mat-button-toggle.mat-button-toggle-checked {
+  background-color: $accent;
+  color: white;
+}

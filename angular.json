@@ -12,7 +12,8 @@
       "i18n": {
         "sourceLocale": "en-US",
         "locales": {
-          "en": "src/i18n/messages.xlf"
+          "en": "src/i18n/messages.xlf",
+          "de": "src/i18n/messages.de.xlf"
         }
       },
       "architect": {
@@ -30,7 +31,7 @@
             "scripts": []
           },
           "configurations": {
-            "localize": ["en"],
+            "localize": ["en", "de"],
             "production": {
               "fileReplacements": [
                 {

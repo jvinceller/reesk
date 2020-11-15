@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterContentInit, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'reesk-slider',
-  templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.scss']
+  selector: "reesk-slider",
+  templateUrl: "./slider.component.html",
+  styleUrls: ["./slider.component.scss"],
 })
-export class SliderComponent {
+export class SliderComponent implements AfterContentInit {
   @Input()
   min: number;
 
@@ -13,12 +13,23 @@ export class SliderComponent {
   max: number;
 
   @Input()
+  default: number;
+
+  value: number;
+
+  @Input()
   label: string;
 
   @Output()
   change = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() {}
+
+  ngAfterContentInit() {
+    if (this.default) {
+      this.value = this.default;
+    }
+  }
 
   onChange(value: number) {
     this.change.emit(value);
